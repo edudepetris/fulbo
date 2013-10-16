@@ -19,6 +19,11 @@ class SportCenter < ActiveRecord::Base
 
   # == Accessors
   attr_accessible :address, :cuit, :description,
-                  :email, :name, :phone, :owner_id, :slug
+                  :email, :name, :phone, :owner_id, :slug, :avatar,
+                  :remove_avatar, :avatar_cache, :remote_avatar_url
+  attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
+
+  mount_uploader :avatar, AvatarUploader
+
 
 end

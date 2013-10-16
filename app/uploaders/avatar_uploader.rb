@@ -42,8 +42,13 @@ class AvatarUploader < CarrierWave::Uploader::Base
     process :resize_to_fill => [140,140]
   end
 
+  version :avatar do
+    process :crop
+    process :resize_to_fill => [140,140]
+  end
+
   def crop
-    if model.crop_x.present?
+     if model.crop_x.present?
       resize_to_limit(600, 600)
       manipulate! do |img|
         x = model.crop_x.to_i

@@ -18,9 +18,13 @@
           %dd= @sport_center.description
         %a.btn.btn-primary{:href => edit_sport_center_path(@sport_center)}
           = t(".change")
+      
+
     .span4
       .img-polaroid
         %h3= t(".logo")
-        = link_to image_tag('complejo.jpg'), '#'
+        = prof_avatar(@sport_center ,:badge)  
         %a.btn.btn-primary{:href => edit_sport_center_path(@sport_center)}
           = t(".change")
+
+      
